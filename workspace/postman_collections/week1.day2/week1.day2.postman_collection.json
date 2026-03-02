@@ -1,0 +1,592 @@
+{
+  "info": {
+    "_postman_id": "01f1d601-10e3-42e2-9af1-9eeb7c4e8c17",
+    "name": "week1.day2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "14565393"
+  },
+  "item": [
+    {
+      "name": "retrieve_records_from_incident_table_in_json_format",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name has OK\", function () {\r",
+              "    pm.response.to.have.status(\"OK\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validate the response should be in JSON format\", function () {\r",
+              "    pm.expect(pm.response.headers.get(\"Content-Type\")).contains(\"application/json\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response time is less than 7000ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(7000);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "e5!pRsPN%lH5",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://dev324941.service-now.com/api/now/table/incident",
+          "protocol": "https",
+          "host": [
+            "dev324941",
+            "service-now",
+            "com"
+          ],
+          "path": [
+            "api",
+            "now",
+            "table",
+            "incident"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "retrieve_records_from_incident_table_in_xml_format",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name has OK\", function () {\r",
+              "    pm.response.to.have.status(\"OK\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validate the response should be in JSON format\", function () {\r",
+              "    pm.expect(pm.response.headers.get(\"Content-Type\")).contains(\"application/xml\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response time is less than 7000ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(7000);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {
+          "accept": true
+        }
+      },
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "e5!pRsPN%lH5",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/xml",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://dev324941.service-now.com/api/now/table/incident",
+          "protocol": "https",
+          "host": [
+            "dev324941",
+            "service-now",
+            "com"
+          ],
+          "path": [
+            "api",
+            "now",
+            "table",
+            "incident"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "retrieve_records_from_incident_table_using_path_variable",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name has OK\", function () {\r",
+              "    pm.response.to.have.status(\"OK\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validate the response should be in JSON format\", function () {\r",
+              "    pm.expect(pm.response.headers.get(\"Content-Type\")).contains(\"application/json\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response time is less than 7000ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(7000);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "e5!pRsPN%lH5",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://dev324941.service-now.com/api/now/table/:tableName",
+          "protocol": "https",
+          "host": [
+            "dev324941",
+            "service-now",
+            "com"
+          ],
+          "path": [
+            "api",
+            "now",
+            "table",
+            ":tableName"
+          ],
+          "variable": [
+            {
+              "key": "tableName",
+              "value": "incident"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "retrieve_hardware_records_from_incident_table_using_query_parameter",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name has OK\", function () {\r",
+              "    pm.response.to.have.status(\"OK\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validate the response should be in JSON format\", function () {\r",
+              "    pm.expect(pm.response.headers.get(\"Content-Type\")).contains(\"application/json\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response time is less than 7000ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(7000);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "e5!pRsPN%lH5",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://dev324941.service-now.com/api/now/table/incident?category=hardware",
+          "protocol": "https",
+          "host": [
+            "dev324941",
+            "service-now",
+            "com"
+          ],
+          "path": [
+            "api",
+            "now",
+            "table",
+            "incident"
+          ],
+          "query": [
+            {
+              "key": "category",
+              "value": "hardware"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "retrieve_a_record_from_incident_table",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name has OK\", function () {\r",
+              "    pm.response.to.have.status(\"OK\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validate the response should be in JSON format\", function () {\r",
+              "    pm.expect(pm.response.headers.get(\"Content-Type\")).contains(\"application/json\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response time is less than 5000ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "e5!pRsPN%lH5",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://dev324941.service-now.com/api/now/table/:tableName/:sysID",
+          "protocol": "https",
+          "host": [
+            "dev324941",
+            "service-now",
+            "com"
+          ],
+          "path": [
+            "api",
+            "now",
+            "table",
+            ":tableName",
+            ":sysID"
+          ],
+          "variable": [
+            {
+              "key": "tableName",
+              "value": "incident"
+            },
+            {
+              "key": "sysID",
+              "value": "ff90d9a283cd7210ac835c65eeaad3b1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete_existing_record_in_incident_table",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 204\", function () {\r",
+              "    pm.response.to.have.status(204);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name has No Content\", function () {\r",
+              "    pm.response.to.have.status(\"No Content\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response time is less than 3000ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "e5!pRsPN%lH5",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://dev324941.service-now.com/api/now/table/:tableName/:sysID",
+          "protocol": "https",
+          "host": [
+            "dev324941",
+            "service-now",
+            "com"
+          ],
+          "path": [
+            "api",
+            "now",
+            "table",
+            ":tableName",
+            ":sysID"
+          ],
+          "variable": [
+            {
+              "key": "tableName",
+              "value": "incident"
+            },
+            {
+              "key": "sysID",
+              "value": "ff8f804583653210ac835c65eeaad3e3"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create_new_record_in_incident_table_without_request_payload",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {\r",
+              "    pm.response.to.have.status(201);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name has Created\", function () {\r",
+              "    pm.response.to.have.status(\"Created\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validate the response should be in JSON format\", function () {\r",
+              "    pm.expect(pm.response.headers.get(\"Content-Type\")).contains(\"application/json\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response time is less than 5000ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "e5!pRsPN%lH5",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "https://dev324941.service-now.com/api/now/table/:tableName",
+          "protocol": "https",
+          "host": [
+            "dev324941",
+            "service-now",
+            "com"
+          ],
+          "path": [
+            "api",
+            "now",
+            "table",
+            ":tableName"
+          ],
+          "variable": [
+            {
+              "key": "tableName",
+              "value": "incident"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create_new_record_in_incident_table_with_request_payload",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {\r",
+              "    pm.response.to.have.status(201);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name has Created\", function () {\r",
+              "    pm.response.to.have.status(\"Created\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validate the response should be in JSON format\", function () {\r",
+              "    pm.expect(pm.response.headers.get(\"Content-Type\")).contains(\"application/json\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response time is less than 5000ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "e5!pRsPN%lH5",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"short_description\": \"RESTAPIJAN2026\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://dev324941.service-now.com/api/now/table/:tableName",
+          "protocol": "https",
+          "host": [
+            "dev324941",
+            "service-now",
+            "com"
+          ],
+          "path": [
+            "api",
+            "now",
+            "table",
+            ":tableName"
+          ],
+          "variable": [
+            {
+              "key": "tableName",
+              "value": "incident"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

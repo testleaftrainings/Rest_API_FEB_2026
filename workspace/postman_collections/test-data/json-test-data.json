@@ -1,0 +1,17 @@
+[
+	{
+		"ShortDescription": "RESTAPIFEB20261",
+		"Description": "Create new record based on the POST method1",
+		"Category": "hardware"
+	},
+	{
+		"ShortDescription": "RESTAPIFEB20262",
+		"Description": "Create new record based on the POST method2",
+		"Category": "hardware"
+	},
+	{
+		"ShortDescription": "RESTAPIFEB20263",
+		"Description": "Create new record based on the POST method3",
+		"Category": "inquiry"
+	}
+]

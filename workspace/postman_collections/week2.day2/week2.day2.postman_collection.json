@@ -1,0 +1,147 @@
+{
+  "info": {
+    "_postman_id": "b900e798-468c-4b47-ace9-89a5311a99cb",
+    "name": "week2.day2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52582345",
+    "_collection_link": "https://go.postman.co/collection/52582345-b900e798-468c-4b47-ace9-89a5311a99cb?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "create_a_new_record_in_incident_table_with_request_body_use_data_variable",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {\r",
+              "    pm.response.to.have.status(201);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name has Created\", function () {\r",
+              "    pm.response.to.have.status(\"Created\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validate response format should be JSON\", function () {\r",
+              "    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contains(\"application/json\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response time is less than 2000ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validate the short_description key value\", function () {\r",
+              "    var jsonData = pm.response.json();    \r",
+              "    pm.expect(jsonData.result.short_description).to.eql(pm.iterationData.get(\"ShortDescription\"));\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validate the description key value\", function () {\r",
+              "    var jsonData = pm.response.json();    \r",
+              "    pm.expect(jsonData.result.description).to.eql(pm.iterationData.get(\"Description\"));\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validate the category key value\", function () {\r",
+              "    var jsonData = pm.response.json();    \r",
+              "    pm.expect(jsonData.result.category).to.eql(pm.iterationData.get(\"Category\"));\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{password}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "{{username}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"short_description\": \"{{ShortDescription}}\",\r\n    \"description\": \"{{Description}}\",\r\n    \"category\": \"{{Category}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{protocal}}://{{baseUri}}/{{basePath}}/:tableName",
+          "protocol": "{{protocal}}",
+          "host": [
+            "{{baseUri}}"
+          ],
+          "path": [
+            "{{basePath}}",
+            ":tableName"
+          ],
+          "variable": [
+            {
+              "key": "tableName",
+              "value": "{{table_name}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "basePath",
+      "value": "/api/now/table"
+    },
+    {
+      "key": "table_name",
+      "value": "incident"
+    }
+  ]
+}
