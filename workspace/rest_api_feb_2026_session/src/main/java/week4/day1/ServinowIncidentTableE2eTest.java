@@ -16,7 +16,7 @@ public class ServinowIncidentTableE2eTest {
 	@Test(priority = 1)
 	public void create_new_record() {
 		sys_id = given()
-		  .baseUri("https://dev354951.service-now.com")
+		  .baseUri("https://<your-instance-id>.service-now.com")
 		  .basePath("/api/now/table")
 		  .auth()
 		  .basic("admin", "noJ73hE!aAG!")

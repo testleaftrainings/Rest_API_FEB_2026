@@ -26,10 +26,10 @@ public class GetAllHardwareCategoriesRecordsTest {
 	@Test
 	public void validateTheHardwareCategoryResponseBody() {
 		given()
-		  .baseUri("https://dev354951.service-now.com")
+		  .baseUri("https://<your-instance-id>.service-now.com")
 		  .basePath("/api/now/table")
 		  .auth()
-		  .basic("admin", "noJ73hE!aAG!")
+		  .basic("admin", "<your-password>")
 		  .pathParam("tableName", "incident")
 		  .queryParams(queryParams)
 		  .log().all()

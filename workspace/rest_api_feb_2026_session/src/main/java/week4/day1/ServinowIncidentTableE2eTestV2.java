@@ -13,10 +13,10 @@ public class ServinowIncidentTableE2eTestV2 {
 	
 	private static String sys_id;
 	private UpdateIncident updateIncident = new UpdateIncident();
-	private static final String BASEURI = "https://dev354951.service-now.com";
+	private static final String BASEURI = "https://<your-instance-id>.service-now.com";
 	private static final String BASEPATH = "/api/now/table";
 	private static final String USERNAME = "admin";
-	private static final String PASSWORD = "noJ73hE!aAG!";
+	private static final String PASSWORD = "<your-password>";
 	private static final String TABLENAME = "incident";
 	
 	@BeforeClass
