@@ -1,0 +1,79 @@
+how to validate json value is string or integer using restassured hamcrest library in java
+
+To validate whether a JSON value is a string or an integer using RestAssured and Hamcrest in Java, you can use the isA matcher along with specific type checks.
+
+Here is an example demonstrating how to do this:
+
+import io.restassured.RestAssured;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.*;
+import org.junit.Test;
+
+public class JsonValidationTest {
+
+    @Test
+    public void validateStringType() {
+        // Assume the API returns: {"data": "hello"}
+        given().when().get("/api/endpoint")
+        .then()
+            .assertThat()
+            // Validates that the value associated with "data" is an instance of a String
+            .body("data", isA(String.class)); 
+    }
+
+    @Test
+    public void validateIntegerType() {
+        // Assume the API returns: {"count": 123}
+        given().when().get("/api/endpoint")
+        .then()
+            .assertThat()
+            // Validates that the value associated with "count" is an instance of an Integer
+            .body("count", isA(Integer.class)); 
+    }
+    
+    @Test
+    public void validateNumericType() {
+        // Use this for numbers that might be integers or decimals (e.g., {"value": 45.6} or {"value": 10})
+        given().when().get("/api/endpoint")
+        .then()
+            .assertThat()
+            // Validates that the value associated with "value" is an instance of a Number
+            .body("value", isA(Number.class)); 
+    }
+}
+
+Key Hamcrest Matchers Used:
+
+-> isA(Class<T> type): This matcher checks if the actual value is an instance of the specified class.
+
+-> String.class: Checks for a JSON string value.
+
+-> Integer.class: Checks for a JSON integer value. (Note: Hamcrest uses Java's Integer class to represent JSON numbers that are whole numbers).
+
+-> Number.class: A more general check if you just want to ensure it's any numeric type (integer or float/double). 
+
+To run these tests, ensure you have the necessary dependencies in your project's build file (e.g., pom.xml for Maven): 
+
+<dependencies>
+    <!-- RestAssured -->
+    <dependency>
+        <groupId>io.rest-assured</groupId>
+        <artifactId>rest-assured</artifactId>
+        <version>5.3.0</version>
+        <scope>test</scope>
+    </dependency>
+    <!-- JUnit 4 (or similar test runner) -->
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.13.2</version>
+        <scope>test</scope>
+    </dependency>
+    <!-- Hamcrest (often included with RestAssured or JUnit, but good to ensure if needed) -->
+    <dependency>
+        <groupId>org.hamcrest</groupId>
+        <artifactId>hamcrest-library</artifactId>
+        <version>2.2</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>

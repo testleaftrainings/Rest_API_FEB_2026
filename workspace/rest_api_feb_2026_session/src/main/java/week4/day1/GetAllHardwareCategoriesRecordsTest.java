@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
+import week3.day2.pojos.CreateIncident;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
@@ -34,7 +35,7 @@ public class GetAllHardwareCategoriesRecordsTest {
 		  .queryParams(queryParams)
 		  .log().all()
 		.when()
-		  .get("/{tableName}")
+		  .get("/{tableName}")		  		  
 		.then()
 		  .log().ifValidationFails(LogDetail.ALL)
 		  .assertThat()

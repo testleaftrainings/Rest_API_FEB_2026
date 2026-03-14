@@ -8,20 +8,20 @@ import com.google.gson.annotations.SerializedName;
 @Generated("jsonschema2pojo")
 public class UpdateIncident {
 
-	@SerializedName("category")
-	@Expose
-	private String category;
-	@SerializedName("short_description")
-	private String shortDescription;
-	private String description;
+    @SerializedName("category")
+    @Expose
+    private String category;
+    @SerializedName("short_description")
+    private String shortDescription;
+    private String description;
 
-	public String getCategory() {
-		return category;
-	}
+    public String getCategory() {
+        return category;
+    }
 
-	public void setCategory(String category) {
-		this.category = category;
-	}
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
 	public String getShortDescription() {
 		return shortDescription;
@@ -37,6 +37,6 @@ public class UpdateIncident {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
+	}    
 
 }

@@ -13,7 +13,7 @@ public class RetrieveHardwareCategoryOnlyRecords {
 		           .basePath("/api/now/table")
 		           .pathParam("tName", "incident")
 		           .auth()
-		           .basic("admin", "e5!pRsPN%lH5")
+		           .basic("admin", "/eESj0uC3k+O")
 		           .queryParam("category", "hardware")
 		           .queryParam("sysparm_limit", "3")
 		           .queryParam("sysparm_fields", "sys_id,category")
