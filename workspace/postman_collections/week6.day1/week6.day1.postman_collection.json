@@ -1,0 +1,115 @@
+{
+  "info": {
+    "_postman_id": "cfe4f023-f0fd-46a0-b986-56806bc4d3cf",
+    "name": "week6.day1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52582345",
+    "_collection_link": "https://go.postman.co/collection/52582345-cfe4f023-f0fd-46a0-b986-56806bc4d3cf?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "create_access_token",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "grant_type",
+              "value": "password",
+              "type": "text",
+              "uuid": "252cecd2-1004-40b0-acc5-d5d4266ed94b"
+            },
+            {
+              "key": "client_id",
+              "value": "782c2545cb95479abb619dc27af8bdef",
+              "type": "text",
+              "uuid": "b22c5ade-3a8b-4288-8fab-a16427c6bd41"
+            },
+            {
+              "key": "client_secret",
+              "value": "11f)DzHV5X0hKjf!H&ll}KP}ps{<,5;4",
+              "type": "text",
+              "uuid": "5369c6c8-e933-4b3c-abf8-4565724f731e"
+            },
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "text",
+              "uuid": "6e5266ec-2d66-47c0-bb57-84ac7c7e16ae"
+            },
+            {
+              "key": "password",
+              "value": "/eESj0uC3k+O",
+              "type": "text",
+              "uuid": "ef393e1e-e3b9-4919-9975-1470dce4e241"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://dev324941.service-now.com/oauth_token.do",
+          "protocol": "https",
+          "host": [
+            "dev324941",
+            "service-now",
+            "com"
+          ],
+          "path": [
+            "oauth_token.do"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create_access_token_using_refresh_token",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "grant_type",
+              "value": "refresh_token",
+              "type": "text",
+              "uuid": "0825b075-dfd2-4203-9590-711137d706c7"
+            },
+            {
+              "key": "client_id",
+              "value": "782c2545cb95479abb619dc27af8bdef",
+              "type": "text",
+              "uuid": "2c731608-919b-4e46-844a-86af2d1187ce"
+            },
+            {
+              "key": "client_secret",
+              "value": "11f)DzHV5X0hKjf!H&ll}KP}ps{<,5;4",
+              "type": "text",
+              "uuid": "efb05deb-3503-442d-a9a6-688c5abba377"
+            },
+            {
+              "key": "refresh_token",
+              "value": "e3T11z9Iu9r1HaPuE-_pQ759DuMitW1g0bJiwG6fv8JRLr1iSDErYsGKF8G0-13v99KsuvHA-cZRsWZJ573Xkg",
+              "type": "text",
+              "uuid": "fb181a24-11eb-4605-ad62-ac1fc384689d"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://dev324941.service-now.com/oauth_token.do",
+          "protocol": "https",
+          "host": [
+            "dev324941",
+            "service-now",
+            "com"
+          ],
+          "path": [
+            "oauth_token.do"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
